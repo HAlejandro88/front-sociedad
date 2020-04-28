@@ -1,0 +1,19 @@
+
+
+<ion-content class="ion-padding">
+  <section class="login">
+    <section class="login__conteiner">
+        <h2>Inicio Sesión</h2>
+        <form class="login__conteiner--form" (ngSubmit)="login(fLogin)" #fLogin="ngForm">
+            <input type="text" placeholder="Correo:" class="input" name="username"
+                   [(ngModel)]="loginUser.username"
+                   auto
+                   required>
+            <input type="password" placeholder="Contraseña:" class="input" name="password"
+                    [(ngModel)]="loginUser.password"
+                    required>
+            <button type="submit" class="button">Inciar Sesión</button>
+        </form>
+    </section>
+  </section>
+</ion-content>

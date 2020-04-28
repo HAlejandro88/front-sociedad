@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">equipos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <form id="formId" (ngSubmit)="crearEquipo()" #refForm="ngForm">
+              <ion-item>
+                <ion-label position="floating">Id Equipo</ion-label>
+                <ion-input type="text" name="idEquipo" [(ngModel)]="equipo.idEquipo"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Marca</ion-label>
+                <ion-input type="text" name="marca" [(ngModel)]="equipo.marca"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Modelo</ion-label>
+                <ion-input type="text" name="modelo" [(ngModel)]="equipo.modelo"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Numero de Serie</ion-label>
+                <ion-input type="text" name="numSerie" [(ngModel)]="equipo.numSerie"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Descripción</ion-label>
+                <ion-input type="text" name="descripcion" [(ngModel)]="equipo.descripcion"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Fecha de Calibración</ion-label>
+                <ion-datetime displayFormat="YYYY/MM/DD" min="2015" max="2021" name="fechaCalibracion" [(ngModel)]="equipo.fechaCalibracion"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Proxima Calibración</ion-label>
+                <ion-datetime displayFormat="YYYY/MM/DD" min="2015" max="2021" name="proximaCalibracion" [(ngModel)]="equipo.proximaCalibracion"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                <ion-label>Cliente</ion-label>
+                <ion-select [(ngModel)]="equipo.cliente"
+                            okText="Okay" 
+                            name="empresa"
+                            cancelText="Dismiss"  
+                            placeholder="Selecciona el cliente">
+                  <ion-select-option *ngFor="let c of clientes"  [value]="c._id">{{ c.nombre }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label>Responsable</ion-label>
+                <ion-select [(ngModel)]="equipo.responsable"
+                            okText="Okay" 
+                            name="empresa"
+                            cancelText="Dismiss"  
+                            placeholder="Selecciona un responsable">
+                  <ion-select-option *ngFor="let r of responsables"  [value]="r._id">{{ r.nombre }} {{ r.apellidos }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-button type="submit" expand="block" fill="clear" shape="round">
+                Agregar
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

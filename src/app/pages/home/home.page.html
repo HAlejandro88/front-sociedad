@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      DashBoard
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClick()" color="light">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let c of clientes"  size="6">
+        <ion-card>
+          <ion-item color="primary">
+            <ion-button (click)="onClick()" fill="clear" shape="round" slot="start" color="warning">
+              <ion-icon slot="icon-only" name="pencil"></ion-icon>
+            </ion-button>
+            <ion-label class="ion-text-justify">{{ c.nombre }}</ion-label>
+          </ion-item>
+          <ion-card-header>
+            <ion-card-title>{{ c.nombre }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ c.descripcion }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
